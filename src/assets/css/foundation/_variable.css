@@ -1,9 +1,18 @@
-:root {
-	@custom-media --mq-lg screen and (width >= 1024px);
+@property --vw {
+	syntax: '<length>';
+	initial-value: 0;
+	inherits: true;
+}
 
-	--base-vw: 390;
-	--vw: 390px;
-	--size: calc(var(--vw) / var(--base-vw));
+:root {
+	@custom-media --mq-lg screen and (width >= 960px);
+
+	--vw: 100vw;
+	/* prettier-ignore */
+	--window-width: calc(tan(atan2(var(--vw), 1px)));
+	--scale: calc(var(--window-width) / 400);
+	--px: calc(1px * var(--scale));
+	--rem: calc(1rem * var(--scale));
 
 	/* ease */
 	--ease-in-quad: cubic-bezier(0.55, 0.085, 0.68, 0.53);
@@ -150,7 +159,6 @@
 
 @media (--mq-lg) {
 	:root {
-		--base-vw: 1512;
-		--vw: 1512px;
+		--scale: max(1, var(--window-width) / 1366);
 	}
 }

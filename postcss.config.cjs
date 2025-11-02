@@ -6,8 +6,8 @@ const pxvw = (px, base = 390) => {
 	return `${Math.round((px / base) * 10000) / 100}vw`;
 };
 
-const varsize = (size) => {
-	return `calc(${size} * var(--size))`;
+const spx = (size) => {
+	return `calc(${size} * var(--px))`;
 };
 
 module.exports = {
@@ -23,7 +23,7 @@ module.exports = {
 		require('postcss-functions')({
 			functions: {
 				pxvw,
-				varsize,
+				spx,
 			},
 		}),
 	],

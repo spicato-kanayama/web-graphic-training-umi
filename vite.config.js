@@ -27,7 +27,7 @@ export default defineConfig({
 	},
 	build: {
 		cssMinify: false,
-		outDir: '../dist',
+		outDir: '../docs',
 		emptyOutDir: true,
 		rollupOptions: {
 			input: html,
