@@ -1,0 +1,7 @@
+@import './foundation/_index.css';
+
+.home {
+	& .inner {
+		padding: 20px;
+	}
+}

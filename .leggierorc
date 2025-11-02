@@ -1,0 +1,10 @@
+{
+	"quality": {
+		"jpg": 70,
+		"png": 70,
+		"gif": 70,
+		"webp": 70
+	},
+	"input": "src/assets/images",
+	"output": "dist/assets/images"
+}

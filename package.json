@@ -1,0 +1,33 @@
+{
+	"name": "fortenv2ez",
+	"private": true,
+	"version": "1.0.0",
+	"type": "module",
+	"scripts": {
+		"dev": "run-s watch sharp:watch",
+		"watch": "vite --mode development",
+		"build": "vite build",
+		"preview": "vite preview",
+		"sharp:watch": "npx @spicato-inc/leggiero watch",
+		"sharp:all": "npx @spicato-inc/leggiero all"
+	},
+	"devDependencies": {
+		"@spicato-inc/config-eslint": "^1.0.5",
+		"@spicato-inc/config-markuplint": "^1.0.4",
+		"@spicato-inc/config-prettier": "^1.0.5",
+		"@spicato-inc/leggiero": "^1.1.2",
+		"autoprefixer": "^10.4.21",
+		"glob": "^11.0.3",
+		"npm-run-all2": "^8.0.4",
+		"postcss": "^8.5.6",
+		"postcss-custom-media": "^11.0.6",
+		"postcss-functions": "^4.0.2",
+		"postcss-import": "^16.1.1",
+		"postcss-preset-env": "^10.4.0",
+		"vite": "^7.1.12"
+	},
+	"volta": {
+		"node": "22.17.0",
+		"npm": "11.4.2"
+	}
+}
