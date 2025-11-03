@@ -1,5 +1,275 @@
-@import './foundation/_index.css';
+@import url('./foundation/_index.css');
 
-h1 {
-	font-size: spx(32);
+.container {
+	position: fixed;
+	inset: 0;
+	z-index: 100;
+	mix-blend-mode: difference;
+}
+
+/* Loading */
+.loading {
+	position: absolute;
+	inset: 0;
+	z-index: var(--z-loading);
+	padding-bottom: 6vh;
+	pointer-events: none;
+}
+
+.loading__inner {
+	display: flex;
+	flex-direction: column;
+	gap: spx(12);
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+}
+
+.loading__percent {
+	display: flex;
+	gap: spx(4);
+	align-items: baseline;
+	margin-left: spx(8);
+	font-family: var(--font-inconsolata);
+	font-size: spx(40);
+	font-weight: 400;
+	line-height: 1;
+}
+
+.loading__percent_number {
+	min-width: spx(60);
+	text-align: right;
+}
+
+.loading__progress {
+	display: flex;
+	gap: spx(4);
+	align-items: center;
+	justify-content: center;
+}
+
+.loading__progress_item {
+	width: spx(8);
+	height: spx(16);
+	background-color: var(--color-white);
+	opacity: 0.24;
+	transform: skew(-30deg);
+}
+
+/* Frame */
+.frame {
+	position: absolute;
+	inset: 0;
+	z-index: var(--z-frame);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	opacity: 0;
+}
+
+.frame__item {
+	position: absolute;
+	width: spx(44);
+	height: spx(44);
+	border-top: spx(10) solid currentcolor;
+	border-left: spx(10) solid currentcolor;
+
+	&[data-id='1'] {
+		top: pxvh(200);
+		left: spx(64);
+		rotate: 0deg;
+	}
+
+	&[data-id='2'] {
+		top: pxvh(200);
+		right: spx(64);
+		rotate: 90deg;
+	}
+
+	&[data-id='3'] {
+		right: spx(64);
+		bottom: pxvh(200);
+		rotate: 180deg;
+	}
+
+	&[data-id='4'] {
+		bottom: pxvh(200);
+		left: spx(64);
+		rotate: 270deg;
+	}
+}
+
+/* circle-path */
+.circle-path {
+	position: absolute;
+	inset: 0;
+	z-index: var(--z-circle-path);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	opacity: 0;
+}
+
+.circle-path__item {
+	position: absolute;
+	width: spx(124);
+	height: spx(414);
+
+	&[data-id='1'] {
+		left: 0;
+		rotate: 0deg;
+	}
+
+	&[data-id='2'] {
+		right: 0;
+		rotate: 180deg;
+	}
+}
+
+/* character */
+.character {
+	position: absolute;
+	inset: 0;
+	z-index: var(--z-character);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding-bottom: 3vh;
+	opacity: 0;
+}
+
+.character__image {
+	position: relative;
+	width: spx(492);
+	height: spx(418);
+}
+
+.character__image_head {
+	position: absolute;
+	inset: 0;
+}
+
+.character__image_face,
+.character__image_eye {
+	position: absolute;
+	inset: 0;
+	z-index: 1;
+}
+
+/* focus */
+.focus {
+	position: absolute;
+	inset: 0;
+	z-index: var(--z-focus);
+	opacity: 0;
+}
+
+.focus__line,
+.focus__cursor {
+	position: absolute;
+	inset: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+}
+
+.focus__line {
+	gap: spx(380);
+}
+
+.focus__line_item {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	width: spx(250);
+
+	&[data-id='1'] {
+		rotate: 0deg;
+	}
+
+	&[data-id='2'] {
+		rotate: 180deg;
+	}
+}
+
+.focus__line_item_base {
+	width: 100%;
+	height: 1px;
+	background-color: var(--color-white);
+}
+
+.focus__line_item_scale {
+	position: absolute;
+	width: 1px;
+	height: spx(9);
+	background-color: var(--color-white);
+
+	&[data-id='1'] {
+		left: spx(-3);
+		width: spx(5);
+		height: spx(5);
+		border-radius: 50%;
+	}
+
+	&[data-id='2'] {
+		left: spx(44);
+	}
+
+	&[data-id='3'] {
+		left: spx(88);
+	}
+
+	&[data-id='4'] {
+		left: spx(132);
+	}
+}
+
+.focus__cursor {
+	gap: spx(220);
+}
+
+.focus__cursor_item {
+	position: relative;
+	width: spx(163);
+	height: spx(414);
+
+	&[data-id='1'] {
+		rotate: 0deg;
+	}
+
+	&[data-id='2'] {
+		rotate: 180deg;
+	}
+}
+
+.focus__cursor_item_sub,
+.focus__cursor_item_main,
+.focus__cursor_item_long,
+.focus__cursor_item_circle {
+	position: absolute;
+	inset: 0;
+}
+
+@media (--mq-lg) {
+	.frame__item {
+		&[data-id='1'] {
+			top: pxvh(120, 768);
+		}
+
+		&[data-id='2'] {
+			top: pxvh(120, 768);
+		}
+
+		&[data-id='3'] {
+			bottom: pxvh(120, 768);
+		}
+
+		&[data-id='4'] {
+			bottom: pxvh(120, 768);
+		}
+	}
 }

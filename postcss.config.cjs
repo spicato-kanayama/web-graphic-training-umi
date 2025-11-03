@@ -1,9 +1,14 @@
 const postcssPresetEnv = require('postcss-preset-env');
 const postcssCustomMedia = require('postcss-custom-media');
 
-const pxvw = (px, base = 390) => {
+const pxvw = (px, base = 400) => {
 	// 小数点第2位を四捨五入
 	return `${Math.round((px / base) * 10000) / 100}vw`;
+};
+
+const pxvh = (px, base = 844) => {
+	// 小数点第2位を四捨五入
+	return `${Math.round((px / base) * 10000) / 100}vh`;
 };
 
 const spx = (size) => {
@@ -23,6 +28,7 @@ module.exports = {
 		require('postcss-functions')({
 			functions: {
 				pxvw,
+				pxvh,
 				spx,
 			},
 		}),

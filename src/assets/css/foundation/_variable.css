@@ -8,11 +8,27 @@
 	@custom-media --mq-lg screen and (width >= 960px);
 
 	--vw: 100vw;
+
 	/* prettier-ignore */
 	--window-width: calc(tan(atan2(var(--vw), 1px)));
 	--scale: calc(var(--window-width) / 400);
 	--px: calc(1px * var(--scale));
 	--rem: calc(1rem * var(--scale));
+
+	/* color */
+	--color-white: #fff;
+	--color-black: #000;
+
+	/* font */
+	--font-inconsolata: 'Inconsolata', monospace;
+
+	/* z-index */
+	--z-base: 100;
+	--z-frame: 101;
+	--z-circle-path: 102;
+	--z-character: 103;
+	--z-focus: 104;
+	--z-loading: 105;
 
 	/* ease */
 	--ease-in-quad: cubic-bezier(0.55, 0.085, 0.68, 0.53);
