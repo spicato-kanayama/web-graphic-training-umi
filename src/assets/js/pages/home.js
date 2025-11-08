@@ -171,7 +171,11 @@ class CirclePath {
 
 		this.ItemList.forEach((item, index) => {
 			const path = item.querySelector('path');
-			const pathLength = path.getTotalLength();
+
+			const pathScale =
+				path.getBoundingClientRect().width / path.getBBox().width;
+
+			const pathLength = path.getTotalLength() * pathScale;
 
 			gsap.set(path, {
 				strokeDasharray: pathLength,
@@ -423,9 +427,18 @@ class Focus {
 			const mainPath = main.querySelector('path');
 			const longPath = long.querySelector('path');
 
-			const subLength = subPath.getTotalLength();
-			const mainLength = mainPath.getTotalLength();
-			const longLength = longPath.getTotalLength();
+			const subPathScale =
+				subPath.getBoundingClientRect().width / subPath.getBBox().width;
+			const mainPathScale =
+				mainPath.getBoundingClientRect().width /
+				mainPath.getBBox().width;
+			const longPathScale =
+				longPath.getBoundingClientRect().width /
+				longPath.getBBox().width;
+
+			const subLength = subPath.getTotalLength() * subPathScale;
+			const mainLength = mainPath.getTotalLength() * mainPathScale;
+			const longLength = longPath.getTotalLength() * longPathScale;
 
 			gsap.set(subPath, {
 				strokeDasharray: subLength,
